@@ -1,0 +1,12 @@
+{
+    "name": "tebit/edu-board",
+    "description": "Its a lraning base project",
+    "type": "library",
+    "license": "MIT",
+    "autoload" : {
+    	"psr-4" : {
+    		"Edu\\board\\" : "app\\"
+    	}
+    },
+    "require": {}
+}
