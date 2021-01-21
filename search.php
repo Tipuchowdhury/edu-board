@@ -1,3 +1,28 @@
+<?php 
+
+	require_once "config.php";
+	require_once "vendor/autoload.php";
+
+	use Edu\board\Controller\Result;
+	$res = new Result;
+
+
+	if (isset($_POST['submit'])) {
+		$exam = $_POST['exam'];
+		$year = $_POST['year'];
+		$board = $_POST['board'];
+		$roll = $_POST['roll'];
+		$reg = $_POST['reg'];
+
+		$result = $res-> SearchResult($exam, $year, $board, $roll, $reg);
+
+
+	}
+	else {
+		header("location:index.php");
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,23 +57,27 @@
 						<table>
 							<tr>
 								<td>Name</td>
-								<td>Asraful Haque</td>
+								<td><?php echo $result['name']; ?></td>
 							</tr>
 							<tr>
 								<td>Roll</td>
-								<td>505050</td>
+								<td><?php echo $result['roll']; ?></td>
+							</tr></td>
 							</tr>
 							<tr>
 								<td>Reg.</td>
-								<td>101010</td>
+								<td><?php echo $result['reg']; ?></td>
+							</tr></td>
 							</tr>
 							<tr>
 								<td>Board</td>
-								<td>Dhaka</td>
+								<td><?php echo $result['board']; ?></td>
+							</tr></td>
 							</tr>
 							<tr>
 								<td>Institute</td>
-								<td>CT</td>
+								<td><?php echo $result['institute']; ?></td>
+							</tr></td>
 							</tr>
 							<tr>
 								<td>Result</td>
